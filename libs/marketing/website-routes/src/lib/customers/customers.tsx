@@ -3,7 +3,7 @@ import { Button } from '@mussia11/shared/ui-components';
 const Customers = () => {
   return (
     <div>
-      Customers
+      Customerss
       <Button />
     </div>
   );
