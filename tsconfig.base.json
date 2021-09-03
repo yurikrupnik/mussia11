@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@mussia11/marketing/website-routes": [
+        "libs/marketing/website-routes/src/index.ts"
+      ],
+      "@mussia11/shared/ui-components": [
+        "libs/shared/ui-components/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
