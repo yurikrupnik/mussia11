@@ -4,7 +4,7 @@ const Customers = () => {
   return (
     <div>
       Customerss
-      <Button />
+      <Button>My button test</Button>
     </div>
   );
 };
