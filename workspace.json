@@ -1,114 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "button": {
-      "root": "libs/button",
-      "sourceRoot": "libs/button/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/web:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
-          "options": {
-            "outputPath": "dist/libs/button",
-            "tsConfig": "libs/button/tsconfig.lib.json",
-            "project": "libs/button/package.json",
-            "entryFile": "libs/button/src/index.ts",
-            "external": [
-              "react/jsx-runtime"
-            ],
-            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-            "assets": [
-              {
-                "glob": "libs/button/README.md",
-                "input": ".",
-                "output": "."
-              }
-            ]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/button/**/*.{ts,tsx,js,jsx}"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/button"
-          ],
-          "options": {
-            "jestConfig": "libs/button/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "deploy": {
-          "executor": "ngx-deploy-npm:deploy",
-          "options": {
-            "access": "public"
-          }
-        }
-      }
-    },
-    "color-box": {
-      "root": "libs/color-box",
-      "sourceRoot": "libs/color-box/src",
-      "projectType": "library",
-      "targets": {
-        "build": {
-          "executor": "@nrwl/web:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
-          "options": {
-            "outputPath": "dist/libs/color-box",
-            "tsConfig": "libs/color-box/tsconfig.lib.json",
-            "project": "libs/color-box/package.json",
-            "entryFile": "libs/color-box/src/index.ts",
-            "external": [
-              "react/jsx-runtime"
-            ],
-            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
-            "assets": [
-              {
-                "glob": "libs/color-box/README.md",
-                "input": ".",
-                "output": "."
-              }
-            ]
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/color-box/**/*.{ts,tsx,js,jsx}"
-            ]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/color-box"
-          ],
-          "options": {
-            "jestConfig": "libs/color-box/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "deploy": {
-          "executor": "ngx-deploy-npm:deploy",
-          "options": {
-            "access": "public"
-          }
-        }
-      }
-    },
     "core-action1": {
       "projectType": "library",
       "root": "libs/core/action1",
@@ -392,6 +284,126 @@
         }
       }
     },
+    "shared-button": {
+      "root": "libs/shared/button",
+      "sourceRoot": "libs/shared/button/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/shared/button",
+            "tsConfig": "libs/shared/button/tsconfig.lib.json",
+            "project": "libs/shared/button/package.json",
+            "entryFile": "libs/shared/button/src/index.ts",
+            "external": [
+              "react/jsx-runtime"
+            ],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/shared/button/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/button/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/button"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/button/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "executor": "ngx-deploy-npm:deploy",
+          "options": {
+            "access": "public"
+          }
+        },
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": false
+          }
+        }
+      }
+    },
+    "shared-color-box": {
+      "root": "libs/shared/color-box",
+      "sourceRoot": "libs/shared/color-box/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": [
+            "{options.outputPath}"
+          ],
+          "options": {
+            "outputPath": "dist/libs/shared/color-box",
+            "tsConfig": "libs/shared/color-box/tsconfig.lib.json",
+            "project": "libs/shared/color-box/package.json",
+            "entryFile": "libs/shared/color-box/src/index.ts",
+            "external": [
+              "react/jsx-runtime"
+            ],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/shared/color-box/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/color-box/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/shared/color-box"
+          ],
+          "options": {
+            "jestConfig": "libs/shared/color-box/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "executor": "ngx-deploy-npm:deploy",
+          "options": {
+            "access": "public"
+          }
+        },
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": false
+          }
+        }
+      }
+    },
     "shared-pagination": {
       "root": "libs/shared/pagination",
       "sourceRoot": "libs/shared/pagination/src",
@@ -442,6 +454,12 @@
           "executor": "ngx-deploy-npm:deploy",
           "options": {
             "access": "public"
+          }
+        },
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": false
           }
         }
       }

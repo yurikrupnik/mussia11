@@ -14,7 +14,12 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ],
         "accessToken": "YjFhN2I5ZTctNDZmZC00NmY3LWJkNzEtZWZlZGFlYjA3YzNifHJlYWQtd3JpdGU="
       }
     }
@@ -28,14 +33,10 @@
     ]
   },
   "projects": {
-    "button": {
-      "tags": []
-    },
-    "color-box": {
-      "tags": []
-    },
     "core-action1": {
-      "tags": ["scope:core"]
+      "tags": [
+        "scope:core"
+      ]
     },
     "core-service1": {
       "tags": []
@@ -48,20 +49,34 @@
     },
     "internal-jarvis-e2e": {
       "tags": [],
-      "implicitDependencies": ["internal-jarvis"]
+      "implicitDependencies": [
+        "internal-jarvis"
+      ]
     },
     "internal-jarvis-routes": {
       "tags": []
     },
     "marketing-website": {
-      "tags": ["scope:web"]
+      "tags": [
+        "scope:web"
+      ]
     },
     "marketing-website-e2e": {
       "tags": [],
-      "implicitDependencies": ["marketing-website"]
+      "implicitDependencies": [
+        "marketing-website"
+      ]
     },
     "marketing-website-routes": {
-      "tags": ["scope:web"]
+      "tags": [
+        "scope:web"
+      ]
+    },
+    "shared-button": {
+      "tags": []
+    },
+    "shared-color-box": {
+      "tags": []
     },
     "shared-pagination": {
       "tags": []

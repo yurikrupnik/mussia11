@@ -1,7 +1,7 @@
 import { Pagination } from '@tal-test/pagination';
 import type { PaginationProps } from '@tal-test/pagination';
-import { Button } from '@tal-test/button';
-import { ColorBox } from '@tal-test/color-box';
+import { Button } from '@mussia11/shared-button';
+import { ColorBox } from '@mussia11/shared-color-box';
 import { useState, useCallback } from 'react';
 /* eslint-disable-next-line */
 export interface InternalJarvisRoutesProps {}

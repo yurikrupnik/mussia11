@@ -1,9 +1,9 @@
 module.exports = {
-  displayName: 'color-box',
-  preset: '../../jest.preset.js',
+  displayName: 'shared-button',
+  preset: '../../../jest.preset.js',
   transform: {
     '^.+\\.[tj]sx?$': 'babel-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/libs/color-box',
+  coverageDirectory: '../../../coverage/libs/shared/button',
 };
