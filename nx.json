@@ -28,6 +28,12 @@
     ]
   },
   "projects": {
+    "button": {
+      "tags": []
+    },
+    "color-box": {
+      "tags": []
+    },
     "core-action1": {
       "tags": ["scope:core"]
     },

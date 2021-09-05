@@ -1,17 +1,17 @@
 {
-  "name": "@mussia11/pagination",
+  "name": "@tal-test/pagination",
   "version": "0.0.1",
   "description": "Our basic pagination component",
-  "author": "Tal Efronny <tal.efronny@perimeter81.com>",
+  "author": "Tal Efronny <talefronny@gmail.com>",
   "homepage": "https://github.com/yurikrupnik/mussia11/tree/master/libs/shared/pagination#readme",
   "license": "ISC",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "./shared-pagination.umd.js",
+  "module": "./shared-pagination.esm.js",
   "sideEffects": false,
   "files": [
-    "dist"
+    "lib"
   ],
-  "types": "dist/index.d.ts",
+  "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yurikrupnik/mussia11.git",
