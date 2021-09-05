@@ -66,6 +66,105 @@
         }
       }
     },
+    "internal-jarvis": {
+      "root": "apps/internal/jarvis",
+      "sourceRoot": "apps/internal/jarvis",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/internal/jarvis",
+            "outputPath": "dist/apps/internal/jarvis"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "buildTarget": "internal-jarvis:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "internal-jarvis:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "internal-jarvis:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/internal/jarvis"],
+          "options": {
+            "jestConfig": "apps/internal/jarvis/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/internal/jarvis/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
+    "internal-jarvis-e2e": {
+      "root": "apps/internal/jarvis-e2e",
+      "sourceRoot": "apps/internal/jarvis-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/internal/jarvis-e2e/cypress.json",
+            "devServerTarget": "internal-jarvis:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "internal-jarvis:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/internal/jarvis-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "internal-jarvis-routes": {
+      "root": "libs/internal/jarvis-routes",
+      "sourceRoot": "libs/internal/jarvis-routes/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/internal/jarvis-routes/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/internal/jarvis-routes"],
+          "options": {
+            "jestConfig": "libs/internal/jarvis-routes/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "marketing-website": {
       "root": "apps/marketing/website",
       "sourceRoot": "apps/marketing/website",
@@ -160,6 +259,46 @@
           "outputs": ["coverage/libs/marketing/website-routes"],
           "options": {
             "jestConfig": "libs/marketing/website-routes/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-pagination": {
+      "root": "libs/shared/pagination",
+      "sourceRoot": "libs/shared/pagination/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/pagination",
+            "tsConfig": "libs/shared/pagination/tsconfig.lib.json",
+            "project": "libs/shared/pagination/package.json",
+            "entryFile": "libs/shared/pagination/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/shared/pagination/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/pagination/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/pagination"],
+          "options": {
+            "jestConfig": "libs/shared/pagination/jest.config.js",
             "passWithNoTests": true
           }
         }

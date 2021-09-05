@@ -37,6 +37,16 @@
     "core-service2": {
       "tags": []
     },
+    "internal-jarvis": {
+      "tags": []
+    },
+    "internal-jarvis-e2e": {
+      "tags": [],
+      "implicitDependencies": ["internal-jarvis"]
+    },
+    "internal-jarvis-routes": {
+      "tags": []
+    },
     "marketing-website": {
       "tags": ["scope:web"]
     },
@@ -46,6 +56,9 @@
     },
     "marketing-website-routes": {
       "tags": ["scope:web"]
+    },
+    "shared-pagination": {
+      "tags": []
     },
     "shared-ui-components": {
       "tags": []
