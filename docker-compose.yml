@@ -1,0 +1,121 @@
+version: "3"
+services:
+    db:
+        image: mongo
+        ports:
+            - 27017:27017
+#    alfred:
+#        image: gcr.io/mussia8/alfred
+#        build:
+#            context: packages/ui/clients/alfred
+#            dockerfile: Dockerfile
+#        container_name: alfred
+#        environment:
+#            - DB_USER=admin
+#            - DB_PASSWORD=elmtmVSesRtpz3de
+#            - DB_URL=mongodb://db/mussia8
+#        ports:
+#            - 3000:3000
+#        command: npm run start
+#        depends_on:
+#            - db
+#    #    #
+#    batman:
+#        image: gcr.io/mussia8/batman
+#        build:
+#            context: packages/ui/clients/batman
+#            dockerfile: Dockerfile
+#        container_name: batman
+#        environment:
+#            - DB_URL=mongodb://db/mussia8
+#        ports:
+#            - 3001:3000
+#        command: npm run start
+    #    envoy:
+    #        image: envoyproxy/envoy-dev
+    #        container_name: envoy
+    #    billing:
+    #        image: gcr.io/mussia6/billing
+    #        build:
+    #            context: packages/services/billing
+    #            dockerfile: Dockerfile
+    #            args:
+    #                - modulePath=/packages/services/billing
+    #        container_name: billing
+    #        environment:
+    #            - PORT=5000
+    #            - NODE_ENV_DOCKER=true
+    #            - DB_USER=admin
+    #            - MONGODB_URI=mongodb://0.0.0.0/jarvis
+    #            - DB_PASSWORD=elmtmVSesRtpz3de
+    #            - DATABASE_URL=@cluster0.rdmew.mongodb.net/
+    #        ports:
+    #            - 5000:5000
+    #        command: npm run start
+#    service1:
+#        image: gcr.io/mussia8/service1
+#        build:
+#            context: packages/service1
+#            dockerfile: Dockerfile
+#            args:
+#                - modulePath=/packages/service1
+#        container_name: service1
+#        environment:
+#            - PORT=5000
+#            - DB_USER=yurikrupnik
+#            - DB_PASSWORD=T4eXKj1RBI4VnszC
+##            - DB_URL=@cluster0.rdmew.mongodb.net/
+#            - DB_URL=mongodb://db/mussia8
+##            - HOST=https://service1-5g7d5fmura-lm.a.run.app
+#        ports:
+#            - 5000:5000
+#        command: npm run start
+#    service2:
+#        image: gcr.io/mussia8/service2
+#        build:
+#            context: packages/service2
+#            dockerfile: Dockerfile
+#            args:
+#                - modulePath=/packages/service2
+#        container_name: service2
+#        environment:
+#            - PORT=5001
+##            - DB_USER=yurikrupnik
+##            - DB_PASSWORD=T4eXKj1RBI4VnszC
+##            - DB_URL=@cluster0.rdmew.mongodb.net/
+#            - DB_URL=mongodb://db/mussia8
+#        ports:
+#            - 5001:5001
+#        command: npm run start
+#
+#    service3:
+#        image: gcr.io/mussia8/service3
+#        build:
+#            context: packages/service3
+#            dockerfile: Dockerfile
+#            args:
+#                - modulePath=/packages/service3
+#        container_name: service3
+#        environment:
+#            - PORT=5002
+#            #            - DB_USER=yurikrupnik
+#            #            - DB_PASSWORD=T4eXKj1RBI4VnszC
+#            #            - DB_URL=@cluster0.rdmew.mongodb.net/
+#            - DB_URL=mongodb://db/mussia8
+#        ports:
+#            - 5002:5002
+#        command: npm run start
+#    lab-report:
+#        image: gcr.io/mussia8/lab-report
+#        build:
+#            context: packages/lab-report
+#            dockerfile: Dockerfile
+#            args:
+#                - modulePath=/packages/lab-report
+#        container_name: lab-report
+#        environment:
+#            - PORT=5003
+#            - DB_URL=mongodb://db/mussia8
+#        ports:
+#            - 5003:5003
+#        command: npm run start

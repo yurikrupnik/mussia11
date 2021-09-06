@@ -38,6 +38,25 @@
     "internal-jarvis-routes": {
       "tags": []
     },
+    "fullstack-api": {
+      "tags": ["scope:fullstack", "backend"]
+    },
+    "fullstack-client": {
+      "tags": []
+    },
+    "fullstack-client-e2e": {
+      "tags": [],
+      "implicitDependencies": ["fullstack-client"]
+    },
+    "fullstack-client-routes": {
+      "tags": []
+    },
+    "fullstack-db-connect": {
+      "tags": ["scope:node", "express"]
+    },
+    "fullstack-swagger": {
+      "tags": ["scope:node", "express"]
+    },
     "marketing-website": {
       "tags": ["scope:web"]
     },

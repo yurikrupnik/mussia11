@@ -8,7 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import TablePagination, {
   TablePaginationProps,
 } from '@material-ui/core/TablePagination';
-import { usePagination } from '@material-ui/lab/Pagination';
+// import { usePagination } from '@material-ui/lab/Pagination';
 import { TablePaginationActionsProps } from '@material-ui/core/TablePagination/TablePaginationActions';
 import ChevronLeftRoundedIcon from '@material-ui/icons/ChevronLeftRounded';
 import ChevronRightRoundedIcon from '@material-ui/icons/ChevronRightRounded';
@@ -24,12 +24,13 @@ const PaginationComponent = memo((props: PaginationComponentProps) => {
   console.log('test pagination');
 
   const { count, page, rowsPerPage, onPageChange } = props;
-  const { items } = usePagination({
-    count: Math.ceil(count / rowsPerPage),
-    // eslint-disable-next-line
-    onChange: (e: any, pageNumber) => onPageChange(e, pageNumber - 1), // Mui types dont corelate
-    page: page + 1,
-  });
+  const items: Array<any> = [];
+  // const { items } = usePagination({
+  //   count: Math.ceil(count / rowsPerPage),
+  //   // eslint-disable-next-line
+  //   onChange: (e: any, pageNumber) => onPageChange(e, pageNumber - 1), // Mui types dont corelate
+  //   page: page + 1,
+  // });
 
   const itemsIds = useMemo(() => items.map(() => Math.random()), [items]);
   const handleEllipsisClick = useCallback(
