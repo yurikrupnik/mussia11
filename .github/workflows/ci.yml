@@ -54,7 +54,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '16'
-      - run: git fetch
       - run: npm ci
       - run: npx nx-cloud start-ci-run
       - run: npx nx affected --target=build --parallel --max-parallel=3 --base=origin/master
