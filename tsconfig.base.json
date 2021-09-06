@@ -26,7 +26,7 @@
       "@mussia11/shared/ui-components": [
         "libs/shared/ui-components/src/index.ts"
       ],
-      "@tal-test/pagination": ["libs/shared/pagination/src/index.ts"]
+      "@mussia11/pagination": ["libs/shared/pagination/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
