@@ -18,6 +18,10 @@ type User = {
 
 type UserGroupDocument = User & Document;
 
+const emailReg = /^([\w-/.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+
+const validateEmail = (email: string) => emailReg.test(email);
+
 const dbModel = 'user';
 
 const userGroupSchemaObj: Record<keyof User, SchemaTypeOptions<any>> = {
@@ -73,11 +77,11 @@ const userGroupSchemaObj: Record<keyof User, SchemaTypeOptions<any>> = {
     },
     // required: true,
     // required: function() [{ return this.a === 'test'; }, 'YOUR CUSTOME MSG HERE']
-    set: generateHashSync,
+    // set: generateHashSync,
   },
   role: {
     type: String,
-    enum: usersRoles,
+    // enum: usersRoles,
     default: 'admin',
   },
   image: {

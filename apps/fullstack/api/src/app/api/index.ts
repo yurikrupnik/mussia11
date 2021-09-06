@@ -1,7 +1,7 @@
-import { Router } from "express";
+import { Router } from 'express';
 // import Model, { Project } from "@creativearis/models";
-import Model from "./model";
-import { removeOne, update } from "../utils/methods";
+import Model from './model';
+// import { removeOne, update } from "../utils/methods";
 //
 const route = Router();
 /**
@@ -44,20 +44,20 @@ const route = Router();
  *       500:
  *         description: Error happened
  */
-route.get("/", (req, res) => {
-    const { projection } = req.query;
-    // console.log("req.query before", req.query);
-    delete req.query.projection;
-    // console.log("Models", Models);
-    // res.status(200).json({ ok: true });
-    // console.log("req.query after", req.query);
-    Model.find(req.query, projection)
-        .then((response) => {
-            res.status(200).json(response);
-        })
-        .catch((err) => {
-            res.status(500).json(err.message);
-        });
+route.get('/', (req, res) => {
+  const { projection } = req.query;
+  // console.log("req.query before", req.query);
+  delete req.query.projection;
+  // console.log("Models", Models);
+  // res.status(200).json({ ok: true });
+  // console.log("req.query after", req.query);
+  Model.find(req.query, projection)
+    .then((response) => {
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      res.status(500).json(err.message);
+    });
 });
 
 /**
@@ -109,14 +109,14 @@ route.get("/", (req, res) => {
  *       500:
  *         description: No item found
  */
-route.get("/:id", (req, res) => {
-    Model.findById(req.params.id, req.query.projection)
-        .then((response) => {
-            res.status(200).json(response);
-        })
-        .catch((err) => {
-            res.status(500).json(err.message);
-        });
+route.get('/:id', (req, res) => {
+  Model.findById(req.params.id, req.query.projection)
+    .then((response) => {
+      res.status(200).json(response);
+    })
+    .catch((err) => {
+      res.status(500).json(err.message);
+    });
 });
 
 /**
@@ -171,18 +171,18 @@ route.get("/:id", (req, res) => {
  *       401:
  *         description: No auth token
  */
-route.post("/", (req, res) => {
-    console.log("req", req.body); // eslint-disable-line
-    // res.status(200).send('on')
-    const { projection } = req.body;
-    delete req.body.projection;
-    Model.create(req.body, projection)
-        .then((entity) => {
-            res.status(201).json(entity);
-        })
-        .catch((err) => {
-            res.status(500).send(err.message);
-        });
+route.post('/', (req, res) => {
+  console.log('req', req.body); // eslint-disable-line
+  // res.status(200).send('on')
+  const { projection } = req.body;
+  delete req.body.projection;
+  Model.create(req.body, projection)
+    .then((entity) => {
+      res.status(201).json(entity);
+    })
+    .catch((err) => {
+      res.status(500).send(err.message);
+    });
 });
 
 /**
@@ -216,7 +216,7 @@ route.post("/", (req, res) => {
  *       401:
  *         description: No auth token
  */
-route.delete("/:id", removeOne(Model));
+// route.delete("/:id", removeOne(Model));
 
 /**
  * @swagger
@@ -268,14 +268,14 @@ route.delete("/:id", removeOne(Model));
  *       401:
  *         description: No auth token
  */
-route.put("/", update(Model));
+// route.put("/", update(Model));
 // route.delete("/", (req, res) => {
 //     res.status(200).json({
 //         message: "removed many"
 //     });
 // }); // remove many
-route.post("/buss", (req, res) => {
-    console.log("req", req.body);
-    res.status(200).json({ ok: "yes" });
+route.post('/buss', (req, res) => {
+  console.log('req', req.body);
+  res.status(200).json({ ok: 'yes' });
 });
 export default route;
