@@ -1,71 +1,6 @@
 {
   "version": 2,
   "projects": {
-    "core-action1": {
-      "projectType": "library",
-      "root": "libs/core/action1",
-      "sourceRoot": "libs/core/action1",
-      "targets": {
-        "test": {
-          "executor": "@nx-go/nx-go:test"
-        },
-        "lint": {
-          "executor": "@nx-go/nx-go:lint"
-        }
-      }
-    },
-    "core-service1": {
-      "projectType": "application",
-      "root": "apps/core/service1",
-      "sourceRoot": "apps/core/service1",
-      "targets": {
-        "build": {
-          "executor": "@nx-go/nx-go:build",
-          "options": {
-            "outputPath": "dist/apps/core/service1",
-            "main": "apps/core/service1/main.go"
-          }
-        },
-        "serve": {
-          "executor": "@nx-go/nx-go:serve",
-          "options": {
-            "main": "apps/core/service1/main.go"
-          }
-        },
-        "test": {
-          "executor": "@nx-go/nx-go:test"
-        },
-        "lint": {
-          "executor": "@nx-go/nx-go:lint"
-        }
-      }
-    },
-    "core-service2": {
-      "projectType": "application",
-      "root": "apps/core/service2",
-      "sourceRoot": "apps/core/service2",
-      "targets": {
-        "build": {
-          "executor": "@nx-go/nx-go:build",
-          "options": {
-            "outputPath": "dist/apps/core/service2",
-            "main": "apps/core/service2/main.go"
-          }
-        },
-        "serve": {
-          "executor": "@nx-go/nx-go:serve",
-          "options": {
-            "main": "apps/core/service2/main.go"
-          }
-        },
-        "test": {
-          "executor": "@nx-go/nx-go:test"
-        },
-        "lint": {
-          "executor": "@nx-go/nx-go:lint"
-        }
-      }
-    },
     "internal-jarvis": {
       "root": "apps/internal/jarvis",
       "sourceRoot": "apps/internal/jarvis",
@@ -73,9 +8,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/next:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "root": "apps/internal/jarvis",
             "outputPath": "dist/apps/internal/jarvis"
@@ -105,9 +38,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/internal/jarvis"
-          ],
+          "outputs": ["coverage/apps/internal/jarvis"],
           "options": {
             "jestConfig": "apps/internal/jarvis/jest.config.js",
             "passWithNoTests": true
@@ -116,9 +47,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/internal/jarvis/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/internal/jarvis/**/*.{ts,tsx,js,jsx}"]
           }
         }
       }
@@ -143,9 +72,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/internal/jarvis-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/internal/jarvis-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -165,9 +92,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/internal/jarvis-routes"
-          ],
+          "outputs": ["coverage/libs/internal/jarvis-routes"],
           "options": {
             "jestConfig": "libs/internal/jarvis-routes/jest.config.js",
             "passWithNoTests": true
@@ -182,9 +107,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/next:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "root": "apps/marketing/website",
             "outputPath": "dist/apps/marketing/website"
@@ -214,9 +137,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/marketing/website"
-          ],
+          "outputs": ["coverage/apps/marketing/website"],
           "options": {
             "jestConfig": "apps/marketing/website/jest.config.js",
             "passWithNoTests": true
@@ -225,9 +146,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/marketing/website/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/marketing/website/**/*.{ts,tsx,js,jsx}"]
           }
         }
       }
@@ -252,9 +171,7 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/marketing/website-e2e/**/*.{js,ts}"
-            ]
+            "lintFilePatterns": ["apps/marketing/website-e2e/**/*.{js,ts}"]
           }
         }
       }
@@ -274,9 +191,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/marketing/website-routes"
-          ],
+          "outputs": ["coverage/libs/marketing/website-routes"],
           "options": {
             "jestConfig": "libs/marketing/website-routes/jest.config.js",
             "passWithNoTests": true
@@ -291,17 +206,13 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/shared/button",
             "tsConfig": "libs/shared/button/tsconfig.lib.json",
             "project": "libs/shared/button/package.json",
             "entryFile": "libs/shared/button/src/index.ts",
-            "external": [
-              "react/jsx-runtime"
-            ],
+            "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
@@ -315,16 +226,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/shared/button/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/shared/button/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/button"
-          ],
+          "outputs": ["coverage/libs/shared/button"],
           "options": {
             "jestConfig": "libs/shared/button/jest.config.js",
             "passWithNoTests": true
@@ -351,17 +258,13 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/shared/color-box",
             "tsConfig": "libs/shared/color-box/tsconfig.lib.json",
             "project": "libs/shared/color-box/package.json",
             "entryFile": "libs/shared/color-box/src/index.ts",
-            "external": [
-              "react/jsx-runtime"
-            ],
+            "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
@@ -375,16 +278,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/shared/color-box/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/shared/color-box/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/color-box"
-          ],
+          "outputs": ["coverage/libs/shared/color-box"],
           "options": {
             "jestConfig": "libs/shared/color-box/jest.config.js",
             "passWithNoTests": true
@@ -411,17 +310,13 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:package",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "outputPath": "dist/libs/shared/pagination",
             "tsConfig": "libs/shared/pagination/tsconfig.lib.json",
             "project": "libs/shared/pagination/package.json",
             "entryFile": "libs/shared/pagination/src/index.ts",
-            "external": [
-              "react/jsx-runtime"
-            ],
+            "external": ["react/jsx-runtime"],
             "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
             "assets": [
               {
@@ -435,16 +330,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/shared/pagination/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/shared/pagination/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/pagination"
-          ],
+          "outputs": ["coverage/libs/shared/pagination"],
           "options": {
             "jestConfig": "libs/shared/pagination/jest.config.js",
             "passWithNoTests": true
@@ -479,9 +370,7 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/shared/ui-components"
-          ],
+          "outputs": ["coverage/libs/shared/ui-components"],
           "options": {
             "jestConfig": "libs/shared/ui-components/jest.config.js",
             "passWithNoTests": true
