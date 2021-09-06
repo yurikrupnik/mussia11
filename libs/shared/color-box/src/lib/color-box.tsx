@@ -4,6 +4,7 @@ export interface ColorBoxProps {
 
 export function ColorBox(props: ColorBoxProps) {
   const { color } = props;
+  console.log('test color-box');
   return (
     <div
       style={{
