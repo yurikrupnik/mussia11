@@ -2,6 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",
+    "esModuleInterop": true,
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -15,6 +16,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@mussia11/fullstack/client-routes": [
+        "libs/fullstack/client-routes/src/index.ts"
+      ],
+      "@mussia11/fullstack/db-connect": [
+        "libs/fullstack/db-connect/src/index.ts"
+      ],
+      "@mussia11/fullstack/swagger": ["libs/fullstack/swagger/src/index.ts"],
       "@mussia11/marketing/website-routes": [
         "libs/marketing/website-routes/src/index.ts"
       ],

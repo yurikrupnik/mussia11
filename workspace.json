@@ -66,6 +66,226 @@
         }
       }
     },
+    "fullstack-api": {
+      "root": "apps/fullstack/api",
+      "sourceRoot": "apps/fullstack/api/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/node:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/fullstack/api",
+            "main": "apps/fullstack/api/src/main.ts",
+            "tsConfig": "apps/fullstack/api/tsconfig.app.json",
+            "assets": ["apps/fullstack/api/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/fullstack/api/src/environments/environment.ts",
+                  "with": "apps/fullstack/api/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "fullstack-api:build"
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/fullstack/api/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/fullstack/api"],
+          "options": {
+            "jestConfig": "apps/fullstack/api/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "fullstack-client": {
+      "root": "apps/fullstack/client",
+      "sourceRoot": "apps/fullstack/client/src",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/fullstack/client",
+            "index": "apps/fullstack/client/src/index.html",
+            "main": "apps/fullstack/client/src/main.tsx",
+            "polyfills": "apps/fullstack/client/src/polyfills.ts",
+            "tsConfig": "apps/fullstack/client/tsconfig.app.json",
+            "assets": [
+              "apps/fullstack/client/src/favicon.ico",
+              "apps/fullstack/client/src/assets"
+            ],
+            "styles": [],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/webpack"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/fullstack/client/src/environments/environment.ts",
+                  "with": "apps/fullstack/client/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "fullstack-client:build",
+            "hmr": true,
+            "proxyConfig": "apps/fullstack/client/proxy.conf.json",
+            "port": 4201,
+            "open": true
+
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "fullstack-client:build:production",
+              "hmr": false
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/fullstack/client/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/fullstack/client"],
+          "options": {
+            "jestConfig": "apps/fullstack/client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "fullstack-client-e2e": {
+      "root": "apps/fullstack/client-e2e",
+      "sourceRoot": "apps/fullstack/client-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/fullstack/client-e2e/cypress.json",
+            "devServerTarget": "fullstack-client:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fullstack-client:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/fullstack/client-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "fullstack-client-routes": {
+      "root": "libs/fullstack/client-routes",
+      "sourceRoot": "libs/fullstack/client-routes/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/fullstack/client-routes/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fullstack/client-routes"],
+          "options": {
+            "jestConfig": "libs/fullstack/client-routes/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "fullstack-db-connect": {
+      "root": "libs/fullstack/db-connect",
+      "sourceRoot": "libs/fullstack/db-connect/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/fullstack/db-connect/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fullstack/db-connect"],
+          "options": {
+            "jestConfig": "libs/fullstack/db-connect/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "fullstack-swagger": {
+      "root": "libs/fullstack/swagger",
+      "sourceRoot": "libs/fullstack/swagger/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/fullstack/swagger/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fullstack/swagger"],
+          "options": {
+            "jestConfig": "libs/fullstack/swagger/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "marketing-website": {
       "root": "apps/marketing/website",
       "sourceRoot": "apps/marketing/website",
@@ -195,7 +415,16 @@
   "generators": {
     "@nrwl/react": {
       "application": {
+        "style": "@emotion/styled",
+        "linter": "eslint",
         "babel": true
+      },
+      "component": {
+        "style": "@emotion/styled"
+      },
+      "library": {
+        "style": "@emotion/styled",
+        "linter": "eslint"
       }
     },
     "@nrwl/next": {
