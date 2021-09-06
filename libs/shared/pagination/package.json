@@ -1,0 +1,47 @@
+{
+  "name": "@mussia11/pagination",
+  "version": "0.0.2",
+  "description": "Our basic pagination component",
+  "author": "Tal Efronny <talefronny@gmail.com>",
+  "homepage": "https://github.com/yurikrupnik/mussia11/tree/master/libs/shared/pagination#readme",
+  "license": "ISC",
+  "main": "./shared-pagination.umd.js",
+  "module": "./shared-pagination.esm.js",
+  "sideEffects": false,
+  "files": [
+    "lib"
+  ],
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yurikrupnik/mussia11.git",
+    "directory": "libs/shared/pagination"
+  },
+  "bugs": {
+    "url": "https://github.com/yurikrupnik/mussia11/issues"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2"
+  },
+  "dependencies": {
+    "@material-ui/core": "4.12.1",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "4.0.0-alpha.58",
+    "clsx": "1.1.1",
+    "react-svg": "14.0.8"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^11.2.5",
+    "@types/react": "^17.0.14",
+    "@types/react-dom": "^17.0.9",
+    "npm-run-all": "^4.1.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "jest": {
+    "collectCoverage": false,
+    "moduleNameMapper": {
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy"
+    }
+  }
+}

@@ -28,13 +28,14 @@
     ]
   },
   "projects": {
-    "core-action1": {
-      "tags": ["scope:core"]
-    },
-    "core-service1": {
+    "internal-jarvis": {
       "tags": []
     },
-    "core-service2": {
+    "internal-jarvis-e2e": {
+      "tags": [],
+      "implicitDependencies": ["internal-jarvis"]
+    },
+    "internal-jarvis-routes": {
       "tags": []
     },
     "marketing-website": {
@@ -46,6 +47,15 @@
     },
     "marketing-website-routes": {
       "tags": ["scope:web"]
+    },
+    "shared-button": {
+      "tags": []
+    },
+    "shared-color-box": {
+      "tags": []
+    },
+    "shared-pagination": {
+      "tags": []
     },
     "shared-ui-components": {
       "tags": []
