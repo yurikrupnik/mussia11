@@ -20,6 +20,7 @@
         "serve": {
           "executor": "@nrwl/next:server",
           "options": {
+            "port": 4201,
             "buildTarget": "internal-jarvis:build",
             "dev": true
           },
