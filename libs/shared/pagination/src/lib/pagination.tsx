@@ -21,7 +21,7 @@ type PaginationComponentProps = TablePaginationActionsProps &
 
 const PaginationComponent = memo((props: PaginationComponentProps) => {
   const classes = createClasses({});
-  console.log('test pagination!');
+  console.log('test pagination');
 
   const { count, page, rowsPerPage, onPageChange } = props;
   const { items } = usePagination({
