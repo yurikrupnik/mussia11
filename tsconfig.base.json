@@ -23,12 +23,18 @@
         "libs/fullstack/db-connect/src/index.ts"
       ],
       "@mussia11/fullstack/swagger": ["libs/fullstack/swagger/src/index.ts"],
+      "@mussia11/internal/jarvis-routes": [
+        "libs/internal/jarvis-routes/src/index.ts"
+      ],
       "@mussia11/marketing/website-routes": [
         "libs/marketing/website-routes/src/index.ts"
       ],
+      "@mussia11/shared-button": ["libs/shared/button/src/index.ts"],
+      "@mussia11/shared-color-box": ["libs/shared/color-box/src/index.ts"],
       "@mussia11/shared/ui-components": [
         "libs/shared/ui-components/src/index.ts"
-      ]
+      ],
+      "@mussia11/pagination": ["libs/shared/pagination/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,68 +1,103 @@
 {
   "version": 2,
   "projects": {
-    "core-action1": {
+    "internal-jarvis": {
+      "root": "apps/internal/jarvis",
+      "sourceRoot": "apps/internal/jarvis",
+      "projectType": "application",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/next:build",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "root": "apps/internal/jarvis",
+            "outputPath": "dist/apps/internal/jarvis"
+          },
+          "configurations": {
+            "production": {}
+          }
+        },
+        "serve": {
+          "executor": "@nrwl/next:server",
+          "options": {
+            "port": 4201,
+            "buildTarget": "internal-jarvis:build",
+            "dev": true
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "internal-jarvis:build:production",
+              "dev": false
+            }
+          }
+        },
+        "export": {
+          "executor": "@nrwl/next:export",
+          "options": {
+            "buildTarget": "internal-jarvis:build:production"
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/internal/jarvis"],
+          "options": {
+            "jestConfig": "apps/internal/jarvis/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/internal/jarvis/**/*.{ts,tsx,js,jsx}"]
+          }
+        }
+      }
+    },
+    "internal-jarvis-e2e": {
+      "root": "apps/internal/jarvis-e2e",
+      "sourceRoot": "apps/internal/jarvis-e2e/src",
+      "projectType": "application",
+      "targets": {
+        "e2e": {
+          "executor": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/internal/jarvis-e2e/cypress.json",
+            "devServerTarget": "internal-jarvis:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "internal-jarvis:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/internal/jarvis-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
+    "internal-jarvis-routes": {
+      "root": "libs/internal/jarvis-routes",
+      "sourceRoot": "libs/internal/jarvis-routes/src",
       "projectType": "library",
-      "root": "libs/core/action1",
-      "sourceRoot": "libs/core/action1",
       "targets": {
-        "test": {
-          "executor": "@nx-go/nx-go:test"
-        },
         "lint": {
-          "executor": "@nx-go/nx-go:lint"
-        }
-      }
-    },
-    "core-service1": {
-      "projectType": "application",
-      "root": "apps/core/service1",
-      "sourceRoot": "apps/core/service1",
-      "targets": {
-        "build": {
-          "executor": "@nx-go/nx-go:build",
+          "executor": "@nrwl/linter:eslint",
           "options": {
-            "outputPath": "dist/apps/core/service1",
-            "main": "apps/core/service1/main.go"
-          }
-        },
-        "serve": {
-          "executor": "@nx-go/nx-go:serve",
-          "options": {
-            "main": "apps/core/service1/main.go"
+            "lintFilePatterns": [
+              "libs/internal/jarvis-routes/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
-          "executor": "@nx-go/nx-go:test"
-        },
-        "lint": {
-          "executor": "@nx-go/nx-go:lint"
-        }
-      }
-    },
-    "core-service2": {
-      "projectType": "application",
-      "root": "apps/core/service2",
-      "sourceRoot": "apps/core/service2",
-      "targets": {
-        "build": {
-          "executor": "@nx-go/nx-go:build",
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/internal/jarvis-routes"],
           "options": {
-            "outputPath": "dist/apps/core/service2",
-            "main": "apps/core/service2/main.go"
+            "jestConfig": "libs/internal/jarvis-routes/jest.config.js",
+            "passWithNoTests": true
           }
-        },
-        "serve": {
-          "executor": "@nx-go/nx-go:serve",
-          "options": {
-            "main": "apps/core/service2/main.go"
-          }
-        },
-        "test": {
-          "executor": "@nx-go/nx-go:test"
-        },
-        "lint": {
-          "executor": "@nx-go/nx-go:lint"
         }
       }
     },
@@ -381,6 +416,162 @@
           "options": {
             "jestConfig": "libs/marketing/website-routes/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shared-button": {
+      "root": "libs/shared/button",
+      "sourceRoot": "libs/shared/button/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/button",
+            "tsConfig": "libs/shared/button/tsconfig.lib.json",
+            "project": "libs/shared/button/package.json",
+            "entryFile": "libs/shared/button/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/shared/button/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/button/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/button"],
+          "options": {
+            "jestConfig": "libs/shared/button/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "executor": "ngx-deploy-npm:deploy",
+          "options": {
+            "access": "public"
+          }
+        },
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": false
+          }
+        }
+      }
+    },
+    "shared-color-box": {
+      "root": "libs/shared/color-box",
+      "sourceRoot": "libs/shared/color-box/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/color-box",
+            "tsConfig": "libs/shared/color-box/tsconfig.lib.json",
+            "project": "libs/shared/color-box/package.json",
+            "entryFile": "libs/shared/color-box/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/shared/color-box/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/color-box/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/color-box"],
+          "options": {
+            "jestConfig": "libs/shared/color-box/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "executor": "ngx-deploy-npm:deploy",
+          "options": {
+            "access": "public"
+          }
+        },
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": false
+          }
+        }
+      }
+    },
+    "shared-pagination": {
+      "root": "libs/shared/pagination",
+      "sourceRoot": "libs/shared/pagination/src",
+      "projectType": "library",
+      "targets": {
+        "build": {
+          "executor": "@nrwl/web:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/shared/pagination",
+            "tsConfig": "libs/shared/pagination/tsconfig.lib.json",
+            "project": "libs/shared/pagination/package.json",
+            "entryFile": "libs/shared/pagination/src/index.ts",
+            "external": ["react/jsx-runtime"],
+            "rollupConfig": "@nrwl/react/plugins/bundle-rollup",
+            "assets": [
+              {
+                "glob": "libs/shared/pagination/README.md",
+                "input": ".",
+                "output": "."
+              }
+            ]
+          }
+        },
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/shared/pagination/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/pagination"],
+          "options": {
+            "jestConfig": "libs/shared/pagination/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "deploy": {
+          "executor": "ngx-deploy-npm:deploy",
+          "options": {
+            "access": "public"
+          }
+        },
+        "version": {
+          "executor": "@jscutlery/semver:version",
+          "options": {
+            "syncVersions": false
           }
         }
       }
