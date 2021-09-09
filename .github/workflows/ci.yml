@@ -59,7 +59,9 @@ jobs:
         uses: nrwl/nx-set-shas@v2
       - uses: actions/setup-node@v1
         with:
+          registry-url: https://registry.npmjs.org/
           node-version: '16'
+          scope: '@mussia11'
 
       - run: git config --global user.email krupnik.yuri@gmail.com && git config --global user.name yurikrupnik
       - run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
@@ -71,7 +73,10 @@ jobs:
       - run: npx nx affected --target=lint --parallel --max-parallel=2 --base=origin/master
       - run: npx nx affected --target=e2e --parallel --max-parallel=3 --base=origin/master
       # - run: NX_CLOUD_DISTRIBUTED_EXECUTION=false npx nx affected --target=version --parallel --max-parallel=3 --base=origin/master -- --patch
-      # - run: NX_CLOUD_DISTRIBUTED_EXECUTION=false npx nx affected --target=deploy --parallel --max-parallel=3 --base=origin/master
+      - run: NX_CLOUD_DISTRIBUTED_EXECUTION=false npx nx affected --target=deploy --parallel --max-parallel=3 --base=origin/master
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - run: npx nx-cloud stop-all-agents
   agents:
     runs-on: ubuntu-latest
