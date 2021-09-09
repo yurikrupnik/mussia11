@@ -47,6 +47,7 @@
     "@nrwl/web": "12.8.0",
     "@nrwl/workspace": "12.8.0",
     "@nx-go/nx-go": "1.7.1",
+    "@storybook/react": "^6.3.8",
     "@testing-library/react": "11.2.6",
     "@testing-library/react-hooks": "7.0.1",
     "@types/jest": "26.0.24",

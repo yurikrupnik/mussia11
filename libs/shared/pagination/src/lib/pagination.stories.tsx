@@ -1,5 +1,4 @@
 import { Story, Meta } from '@storybook/react';
-import { ThemeProvider } from '@mussia10/theme-provider';
 import { Pagination, PaginationProps } from './pagination';
 import { useEffect, useState } from 'react';
 
@@ -26,9 +25,7 @@ const Template: Story<PaginationProps> = (args) => {
   };
 
   return (
-    <ThemeProvider>
-      <Pagination {...args} page={curPage} onChangePage={handleChangePage} />
-    </ThemeProvider>
+    <Pagination {...args} page={curPage} onChangePage={handleChangePage} />
   );
 };
 
