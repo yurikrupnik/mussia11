@@ -30,7 +30,7 @@
     "tslib": "2.3.1"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "^0.1202.4",
+    "@angular-devkit/architect": "^0.1802.0",
     "@dev-thought/ng-deploy-it": "0.6.2",
     "@emotion/babel-plugin": "11.2.0",
     "@jscutlery/semver": "2.6.0",
